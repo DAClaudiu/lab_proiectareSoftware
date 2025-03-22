@@ -2,6 +2,7 @@ package ro.ulbs.paradigme.lab4;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Student {
     private String nume;
@@ -24,6 +25,19 @@ public class Student {
 
     public List<Integer> getNote() {
         return note;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return Objects.equals(nume, student.nume) && Objects.equals(grupa, student.grupa) && Objects.equals(note, student.note);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nume, grupa, note);
     }
 
     public void adaugaNota(int nota) {

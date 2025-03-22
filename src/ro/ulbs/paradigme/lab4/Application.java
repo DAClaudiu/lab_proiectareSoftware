@@ -1,6 +1,10 @@
 package ro.ulbs.paradigme.lab4;
 
 import java.util.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 
 public class Application {
     public static void main(String[] args) {
@@ -87,19 +91,39 @@ public class Application {
         System.out.println();
 
 
-        System.out.println("4.5.2");
+        System.out.println("4.5.2 + 4.5.3");
         List<Student> lista_studenti = new ArrayList<>();
-        lista_studenti.add(new Student("Diana Oprea","223_2"));
-        lista_studenti.add(new Student("Ion Popescu","223_1"));
-        lista_studenti.add(new Student("Elena Dragomir","223_3"));
-        lista_studenti.add(new Student("Maria Popa","223_2"));
+        try {
+            File myObj = new File("input.txt");
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+              String name = myReader.next() + " " + myReader.next();
+              String group = myReader.next();
+              Student student = new Student(name, group);
+              for(int i=0;i<4;i++) {
+                  student.adaugaNota(Integer.parseInt(myReader.next()));
+              }
 
-
-        for(Student student:lista_studenti) {
-           for(int i=0;i<5;i++) {
-               student.adaugaNota(rand.nextInt(7)+4);
-           }
+              lista_studenti.add(student);
+            }
         }
+        catch (FileNotFoundException e){
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        Map<Student, Integer> student_map = new HashMap<>();
+        for(Student student:lista_studenti) {
+
+            if(student_map.containsKey(student)) {
+            student_map.replace(student, student_map.get(student) + 1);
+            }
+            else{
+                student_map.put(student, 1);
+            }
+        }
+
+
+
         for(Object student:lista_studenti) {
             System.out.println(((Student) student).getNume() + " " + ((Student) student).getGrupa() );
         }
@@ -138,6 +162,17 @@ public class Application {
             System.out.println(student.getNume() + " " + student.getGrupa()  );
         }
         System.out.println();
+        System.out.println();
+
+        System.out.println("Studentii cu nr de aparitii: ");
+        for(Student student:student_map.keySet()) {
+            System.out.println(student.getNume() + " " + student_map.get(student));
+
+        }
+
+
+
+
 
 
 
