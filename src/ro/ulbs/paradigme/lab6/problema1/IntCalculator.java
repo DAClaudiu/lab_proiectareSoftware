@@ -1,4 +1,4 @@
-package ro.ulbs.paradigme.lab6;
+package ro.ulbs.paradigme.lab6.problema1;
 
 public class IntCalculator {
     private int state;
