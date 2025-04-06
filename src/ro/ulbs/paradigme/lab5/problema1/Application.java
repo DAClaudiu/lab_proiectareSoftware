@@ -1,4 +1,4 @@
-package ro.ulbs.paradigme.lab5;
+package ro.ulbs.paradigme.lab5.problema1;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
