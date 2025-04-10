@@ -16,6 +16,10 @@ public class DoubleCalculator extends ACalculator {
         state=(Double)state*item;
         return this;
     }
+    public DoubleCalculator divide(Double item) {
+        state=(Double)state/item;
+        return this;
+    }
 
 
     @Override

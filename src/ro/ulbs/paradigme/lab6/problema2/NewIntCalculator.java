@@ -17,6 +17,11 @@ public class NewIntCalculator extends ACalculator {
         return this;
     }
 
+    public NewIntCalculator divide(Integer item) {
+        state=(Integer)state/item;
+        return this;
+    }
+
 
     @Override
     protected void init() {
