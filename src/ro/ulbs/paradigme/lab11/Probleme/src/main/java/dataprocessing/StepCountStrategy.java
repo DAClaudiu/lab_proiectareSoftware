@@ -1,7 +1,6 @@
-package ro.ulbs.paradigme.lab10.src.main.java.dataprocessing;
+package ro.ulbs.paradigme.lab11.Probleme.src.main.java.dataprocessing;
 
 
-import ro.ulbs.paradigme.lab10.src.main.java.storage.SensorData;
 import ro.ulbs.paradigme.lab11.Probleme.src.main.java.storage.ISensorData;
 
 /**
@@ -13,9 +12,7 @@ public interface StepCountStrategy {
      * Consumes a sensor data sample
      * @param sample
      */
-    void consumeMessage(SensorData sample);
-
-
+    void consumeMessage(ISensorData sample);
 
     /**
      * Computes and returns the total number of steps since the app started running.

@@ -14,13 +14,13 @@ public class FilteredStepCountStrategy implements StepCountStrategy {
     public void consumeMessage(SensorData sample) {
         if (sample.getStepsCount() > 0) {
             long one_minute_ago = System.currentTimeMillis() - 60000;
-            
+
 
             int currentSum = lastMinuteList.stream()
-                .filter(data -> data.getTimestamp() >= one_minute_ago)
-                .mapToInt(SensorData::getStepsCount)
-                .sum();
-            
+                    .filter(data -> data.getTimestamp() >= one_minute_ago)
+                    .mapToInt(SensorData::getStepsCount)
+                    .sum();
+
 
             if (currentSum <= STEP_LIMIT && sample.getTimestamp() >= one_minute_ago) {
                 lastMinuteList.add(sample);
@@ -31,8 +31,8 @@ public class FilteredStepCountStrategy implements StepCountStrategy {
     @Override
     public int getTotalSteps() {
         totalSteps = lastMinuteList.stream()
-            .mapToInt(SensorData::getStepsCount)
-            .sum();
+                .mapToInt(SensorData::getStepsCount)
+                .sum();
         return totalSteps;
     }
 
