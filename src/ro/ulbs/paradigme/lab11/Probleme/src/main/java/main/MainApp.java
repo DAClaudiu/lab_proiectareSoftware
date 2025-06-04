@@ -3,6 +3,7 @@ package ro.ulbs.paradigme.lab11.Probleme.src.main.java.main;
 
 import ro.ulbs.paradigme.lab11.Probleme.src.main.java.main.Utils;
 import ro.ulbs.paradigme.lab11.Probleme.src.main.java.storage.DataAggregator;
+import ro.ulbs.paradigme.lab11.Probleme.src.main.java.storage.DecoratedSensorData;
 import ro.ulbs.paradigme.lab11.Probleme.src.main.java.storage.SensorData;
 import ro.ulbs.paradigme.lab11.Probleme.src.main.java.storage.DataRepository;
 
@@ -29,13 +30,13 @@ public class MainApp {
 
         long baseTimestamp = System.currentTimeMillis();
 
-        /*   // TODO Uncomment for decorator
+          // TODO Uncomment for decorator
         baseTimestamp -= 62 * 1000; //one minute before
         dataRepository.addData(new DecoratedSensorData(new SensorData(450, baseTimestamp + 5)));
         dataRepository.addData(new DecoratedSensorData(new SensorData(-100, baseTimestamp + 6)));
         dataRepository.addData(new DecoratedSensorData(new SensorData(500, baseTimestamp + 70)));
         baseTimestamp += 62 * 1000; //back to present
-        */
+
 
         dataRepository.addData(new SensorData(10, baseTimestamp + 1));
         dataRepository.addData(new SensorData(20, baseTimestamp + 2));

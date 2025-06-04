@@ -16,7 +16,7 @@ public class DataRepository extends java.util.Observable {
         }
         return instance;
     }
-    public void addData(SensorData dataRecord){
+    public void addData(ISensorData dataRecord){
         // TODO notify observers -  mark as changed, then call inherited notifyObservers(dataRecord)
         setChanged();
         notifyObservers(dataRecord);

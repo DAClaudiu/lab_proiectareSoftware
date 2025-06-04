@@ -2,7 +2,7 @@ package ro.ulbs.paradigme.lab10.src.main.java.dataprocessing;
 
 
 import ro.ulbs.paradigme.lab10.src.main.java.storage.SensorData;
-import ro.ulbs.paradigme.lab11.Probleme.src.main.java.storage.ISensorData;
+
 
 /**
  * Defines the operations that can be performed on step data. Each implementation uses its own algorithm.

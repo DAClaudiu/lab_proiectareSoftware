@@ -17,9 +17,12 @@ public class DataAggregator implements Observer {
     }
     @Override
     public void update(Observable o, Object arg) {
+
         if (arg instanceof ISensorData) {
-            strategy.consumeMessage((SensorData) arg);
+            ISensorData sd = (ISensorData) arg;
+            strategy.consumeMessage(sd);
         }
+
     }
 
     public String getResults() {
